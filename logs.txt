@@ -1,0 +1,35 @@
+commit 315a2dd2eff96f438d28a542e5fffb9d37543793
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:40:26 2024 +0200
+
+    Call method makeBigStringFrom in main class
+
+commit 5390a7c7d8e16f1613d73458be34a4841fc8098a
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:35:25 2024 +0200
+
+    Fix wrong condition in makeBigStringFrom
+
+commit 6aa0220d1b1de7e7bf5bdba4fcf8195fcd1c073a
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:38:39 2024 +0200
+
+    Call method filterOddLengthStrings in main class
+
+commit 792c3d47012fe1e71ccbaddec0a9ec0add8efba2
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:33:14 2024 +0200
+
+    Fix wrong condition in filterOddLengthStrings
+
+commit 05aa7e7e0fe219e561ad884bed21fdc273049dd0
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:17:04 2024 +0200
+
+    Add starter code
+
+commit 1d3e11cdad4bb316775d1e843eebd7463a5510ed
+Author: le0nid36 <leonid.davitkovski@students.finki.ukim.mk>
+Date:   Wed Apr 10 21:14:29 2024 +0200
+
+    Initial commit

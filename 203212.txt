@@ -1,0 +1,159 @@
+4. Со комадата mkdir SI_2024_lab1_203212 го креираме нашиот 
+локален директориум
+Влегуваме во тој директориум со оваа команда cd SI_2024_lab1_203212 и
+ја извршуваме командатаgit init со која иницијализираме празен 
+git репозиториум во горенаведениот директориум.
+
+5.git remote add origin https://github.com/le0nid36/SI_2024_lab1_203212.git
+и за да проверам дали успешно го поврзав локалниот репозиториум 
+со оддалечениот репозиториум ја искористив командата git remote -v
+
+6. Со оваа команда го креирав README.md фајлот : 
+echo "Leonid Davitkovski 203212" > README.md ,
+со командата git add README.md го ставив фајлот во staging со што
+кажуваме дека сакаме да го вклучиме фајлот во следниот commit, 
+и со командата  git commit -m "Initial commit" го правиме првиот commit, 
+како излез од командата добив : 
+
+[master (root-commit) 1d3e11c] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+7. Ги додадов овие три фајла во мојот локален репозиториум со помож на 
+file explorer, и исто како и претходно ги ставив во staging со 
+git add SILab1_1.java SILab1_2.java SILab1Main.java , и после тоа извршив
+commit со командата git commit -m "Add starter code" , и како излез добив :
+
+[master 05aa7e7] Add starter code
+ 3 files changed, 47 insertions(+)
+ create mode 100644 SILab1Main.java
+ create mode 100644 SILab1_1.java
+ create mode 100644 SILab1_2.java
+
+8. Ја извршив командата git push origin master со која ги push-нуваме
+commit-ите од локалната master гранка, до remote репозиториумот, 
+и добив како излез :
+
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 1.13 KiB | 193.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/le0nid36/SI_2024_lab1_203212.git
+ * [new branch]      master -> master
+
+9. Ја креираме првата гранка со командата git branch bug1 со што bug1 
+ќе се разранува од master и ја креираме гранката bug2 со командата
+git branch bug2 и така и двете гранки ќе се разгрануваат од master
+
+10. git checkout bug1
+
+11. Ја поправив грешката така што во if (el.length() % 2 == 0), 
+нулата ја заменив со 1.
+git add SILab1_1.java
+git commit -m "Fix wrong condition in filterOddLengthStrings"
+
+12. git checkout bug2
+
+13. Ја поправив грешката така што во if (el.length() < minLength), 
+< го заменив со >.
+git add SILab1_2.java
+git commit -m "Fix wrong condition in makeBigStringFrom"
+
+14. git checkout bug1
+
+15. Ја поправив грешката според дадените инструкции.
+git add SILab1Main.java
+git commit -m "Call method filterOddLengthStrings in main class"
+
+16. git checkout bug2
+
+17. Ја поправив грешката според дадените инструкции.
+git add SILab1Main.java
+git commit -m "Call method makeBigStringFrom in main class"
+
+18. Ја извршив командата git push --all origin, и го добив овој излез :
+
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.29 KiB | 662.00 KiB/s, done.
+Total 12 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), completed with 4 local objects.
+To https://github.com/le0nid36/SI_2024_lab1_203212.git
+ * [new branch]      bug1 -> bug1
+ * [new branch]      bug2 -> bug2
+
+19. git checkout master
+
+20. git merge bug1 со која ја спојуваме гранката bug1 кон master, 
+го добив овој излез :
+
+Updating 05aa7e7..6aa0220
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_1.java   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+што значи дека стратегијата за спојување била FF.
+
+
+21. git push --all origin
+
+22. git checkout bug2
+
+23. git rebase master, и бидејќи ми се појави конфликт рачно го отворив 
+SILab1Main.java и ги избришав само специјалните карактери кои се појавија
+и ги оставив и двата повика. Потоа ја повикав командата git add SILab1Main.java, 
+па git rebase --continue и како излез добив
+
+[detached HEAD 315a2dd] Call method makeBigStringFrom in main class
+ 1 file changed, 4 insertions(+)
+Successfully rebased and updated refs/heads/bug2.
+
+24. git checkout master
+
+25. git merge bug2 , го добив овој излез :
+
+Updating 6aa0220..315a2dd
+Fast-forward
+ SILab1Main.java | 4 ++++
+ SILab1_2.java   | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+што значи дека стратегијата за спојување била FF.
+
+26. git push origin --all, ми даваше error :
+
+$ git push origin --all
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 727 bytes | 727.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/le0nid36/SI_2024_lab1_203212.git
+   6aa0220..315a2dd  master -> master
+ ! [rejected]        bug2 -> bug2 (non-fast-forward)
+error: failed to push some refs to 'https://github.com/le0nid36/SI_2024_lab1_203212.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+27. Затоа ја употребив оваа команда git push --force origin --all
+
+28. git log > logs.txt и го додадов 203212.txt фајлот рачно
+и потоа git add logs.txt 203212.txt за да ги ставиме во 
+staging и за крај git commit -m "Final commit"
+
+29. git push --all origin
+
+
+
+
+
